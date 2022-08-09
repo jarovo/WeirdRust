@@ -14,7 +14,7 @@ fn main() {
     println!("Jsi v poušti je u tebe nějakej divnej chlapík");
     println!("Vyber jednu z možností(napiš a nebo b)");
     println!("a) Dáš mu vodu");
-    println!("b) Kopneš ho");
+    println!("b) Necháš ho");
     println!("");
     let user_input = input("");
     if user_input == "a" {
@@ -23,18 +23,18 @@ fn main() {
         exit(exit_code);
     } else if user_input == "b" {
         println!("Udělal jsi dobře neboť to byl kanibal");
-        println!("Teď se válí na zemi co s ním uděláš? (napiš jedno z písmen)");
-        println!("a)Zakopeš ho do písku");
+        println!("Začne tě pronásledovat. Co uděláš? (napiš jedno z písmen)");
+        println!("a)Utkáš se s ním v souboji");
         println!("b)Utečeš");
         println!("");
         let user_input = input("");
         if user_input == "a" {
-            println!("Zatkla tě policie za vraždu");
-            sleep(Duration::from_millis(10000));
+            println!("Prohraál jsi");
+            sleep(Duration::from_millis(10));
             exit(exit_code);
         } else if user_input == "b" {
             println!(
-                "Udělals dobře jelikož pak by to nebyla vražda, zůstals na svobodě. \
+                "Udělals dobře jelikož by jsi prohrál, zůstals na svobodě. \
             Ale hledá tě banda kanibalů, chtějí pomstu.\
             Co uděláš?"
             );
@@ -43,11 +43,11 @@ fn main() {
             let user_input = input("");
             if user_input == "a" {
                 println!("Vyhraál jsi");
-                sleep(Duration::from_millis(10000));
+                sleep(Duration::from_millis(10));
                 exit(exit_code)
             } else if user_input == "b" {
                 println!("Zemřel jsi");
-                sleep(Duration::from_millis(10000));
+                sleep(Duration::from_millis(10));
                 exit(exit_code);
             }
         }

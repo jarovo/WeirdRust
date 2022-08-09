@@ -30,7 +30,7 @@ fn main() {
         let user_input = input("");
         if user_input == "a" {
             println!("Prohraál jsi");
-            sleep(Duration::from_millis(10));
+            sleep(Duration::from_millis(10000));
             exit(exit_code);
         } else if user_input == "b" {
             println!(
@@ -43,11 +43,11 @@ fn main() {
             let user_input = input("");
             if user_input == "a" {
                 println!("Vyhraál jsi");
-                sleep(Duration::from_millis(10));
+                sleep(Duration::from_millis(10000));
                 exit(exit_code)
             } else if user_input == "b" {
                 println!("Zemřel jsi");
-                sleep(Duration::from_millis(10));
+                sleep(Duration::from_millis(10000));
                 exit(exit_code);
             }
         }

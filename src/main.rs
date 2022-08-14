@@ -58,7 +58,7 @@ fn main() {
 
     match user_input {
         // The division was valid
-        Some(x) => println!("Result: {x}"),
+        
 
         "a" => {
             println!("Nezbyla ti žádná voda. Všechnu vypil");

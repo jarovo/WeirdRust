@@ -26,6 +26,12 @@ fn friendship_ofer(exit_code: &i32) -> &i32 {
     return exit_code
 }
 
+fn vyhra(exit_code: &i32) {
+    println!("Vyhrál jsi");
+    sleep(Duration::from_millis(10000));
+    exit(*exit_code);
+}
+
 fn prohra(exit_code: &i32) {
     println!("Prohraál jsi");
     sleep(Duration::from_millis(10000));
@@ -42,38 +48,43 @@ fn main() {
     println!("c) Poodstoupíš krok vzad");
     println!("");
     let user_input = input("");
-    if user_input == "a" {
-        println!("Umřel jsi nemáš co pít");
-        prohra(&exit_code)
-    } else if user_input == "b" {
-        println!("Udělal jsi dobře neboť to byl kanibal");
-        println!("Začne tě pronásledovat. Co uděláš? (napiš jedno z písmen)");
-        println!("a)Utkáš se s ním v souboji");
-        println!("b)Utečeš");
-        println!("");
-        let user_input = input("");
-        if user_input == "a" {
-            prohra(&exit_code)
-        } else if user_input == "b" {
-            println!(
-                "Udělals dobře jelikož by jsi prohrál, zůstals na svobodě. \
-            Ale hledá tě banda kanibalů, chtějí pomstu.\
-            Co uděláš?"
-            );
-            println!("a) Nahlásíš to policii");
-            println!("b) Utkáš se s nimi v boji");
+    match user_input.as_str() {
+        "a" => {
+            println!("Umřel jsi nemáš co pít");
+            prohra(&exit_code);
+        }
+        "b" => {
+            println!("Udělal jsi dobře neboť to byl kanibal");
+            println!("Začne tě pronásledovat. Co uděláš? (napiš jedno z písmen)");
+            println!("a)Utkáš se s ním v souboji");
+            println!("b)Utečeš");
+            println!("");
             let user_input = input("");
             if user_input == "a" {
-                println!("Vyhraál jsi");
-                sleep(Duration::from_millis(10000));
-                exit(exit_code)
+                prohra(&exit_code);
             } else if user_input == "b" {
-                println!("Zemřel jsi");
-                sleep(Duration::from_millis(10000));
-                exit(exit_code);
+                println!(
+                    "Udělals dobře jelikož by jsi prohrál, zůstals na svobodě. \
+                Ale hledá tě banda kanibalů, chtějí pomstu.\
+                Co uděláš?"
+                );
+                println!("a) Nahlásíš to policii");
+                println!("b) Utkáš se s nimi v boji");
+                let user_input = input("");
+                if user_input == "a" {
+                    vyhra(&exit_code);
+                } else if user_input == "b" {
+                    println!("Zemřel jsi");
+                    prohra(&exit_code);
+                }
             }
         }
-    } else if user_input == "c" {
-        friendship_ofer(&exit_code);
+        "c" => {
+            friendship_ofer(&exit_code);
+        }
+        &_ => {
+            println!("Now you are a God.");
+            vyhra(&exit_code);
+        }
     }
 }
